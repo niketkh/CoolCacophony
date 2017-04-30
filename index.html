@@ -42,6 +42,18 @@
 				
 			}
 
+			function onMouseDown(event){
+				var sound = randSound();
+				var color = randColor();
+				sound.play();
+				var maxPoint = new Point(view.size.width, view.size.height);
+				var randomPoint = maxPoint * Point.random();
+
+				var myCircle = new Path.Circle(randomPoint, 200);
+				myCircle.fillColor = color;
+				circles.push(myCircle);
+			}
+
 			function onFrame(event){
 				for(var i=0; i<circles.length;i++){
 					circles[i].fillColor.hue +=1;
