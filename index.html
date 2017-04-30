@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Curious Miner</title>
+		<link rel="stylesheet" href="css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto" rel="stylesheet"> 
+		<script src="js/paper-full.min.js"></script>
+		<script src="js/howler.min.js"></script>
+		<script src="js/main.js"></script>
+		<script type="text/paperscript" canvas="canvas">
+			var circles = [];
+			function onKeyDown(event) {
+				
+				if(keyData[event.key]){
+					var sound = keyData[event.key].sound;
+					var color = keyData[event.key].color;
+					sound.play();
+					var maxPoint = new Point(view.size.width, view.size.height);
+					var randomPoint = maxPoint * Point.random();
+
+					var myCircle = new Path.Circle(randomPoint, 200);
+					myCircle.fillColor = color;
+					circles.push(myCircle);
+				}
+				
+			}
+
+			function onFrame(event){
+				for(var i=0; i<circles.length;i++){
+					circles[i].fillColor.hue +=1;
+					circles[i].scale(.9);
+					if(circles[i].area<1){
+						circles[i].remove();
+						circles.splice(i, 1);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="canvas" resize></canvas>
+		<div id="text-block" style="display: block;">
+			<span id="curious-miner">Curious Miner</span><br>
+			Press any character between a-z to hear cool cacophony with animations
+		</div>
+	</body>
+</html>
