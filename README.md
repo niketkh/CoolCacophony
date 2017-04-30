@@ -11,4 +11,4 @@ A fun project using Paper Js and Howler Js
 ```
 
 ## Screenshot
-<img src="https://github.com/niketkh/CoolCacophony/blob/master/Screenshots/cool-cacophony.png">
+<img src="https://github.com/niketkh/CoolCacophony/blob/master/Screenshots/cool-cacophony-2.png">
